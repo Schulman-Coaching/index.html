@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CognitiFlow - Custom AI solutions that improve lives and transform businesses">
+    <title>CognitiFlow | Bespoke AI Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 2rem 80px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            color: #2d3748;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .about-card {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .about-card p {
+            color: #4a5568;
+            line-height: 1.8;
+        }
+
+        /* Services Section */
+        .services {
+            background: #f7fafc;
+            padding: 80px 2rem;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: #2d3748;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .service-card p {
+            color: #4a5568;
+            line-height: 1.8;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benefits h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: #2d3748;
+        }
+
+        .benefits-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .benefit-item .check {
+            color: #667eea;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-item div h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #2d3748;
+        }
+
+        .benefit-item div p {
+            color: #4a5568;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 2rem;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button-white {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button-white:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        .copyright {
+            opacity: 0.7;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .about h2,
+            .services h2,
+            .benefits h2,
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">CognitiFlow</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Transform Your Business with Bespoke AI Solutions</h1>
+            <p>We design custom artificial intelligence solutions that enhance human potential and drive business success. Experience the power of AI tailored specifically to your needs.</p>
+            <a href="#contact" class="cta-button">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2>Why CognitiFlow?</h2>
+        <div class="about-content">
+            <div class="about-card">
+                <div class="icon">🎯</div>
+                <h3>Custom Solutions</h3>
+                <p>Every business is unique. We design AI solutions tailored specifically to your challenges, goals, and workflows.</p>
+            </div>
+            <div class="about-card">
+                <div class="icon">🤝</div>
+                <h3>Human-Centered</h3>
+                <p>Our AI solutions are built to enhance human capabilities, not replace them. We prioritize improving lives and experiences.</p>
+            </div>
+            <div class="about-card">
+                <div class="icon">💡</div>
+                <h3>Innovation First</h3>
+                <p>We stay at the forefront of AI technology, bringing cutting-edge innovations to solve real-world problems.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="services-container">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>AI Strategy Consulting</h3>
+                    <p>We help you identify opportunities where AI can create the most impact in your organization and develop a comprehensive implementation roadmap.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Custom AI Development</h3>
+                    <p>From machine learning models to natural language processing systems, we build bespoke AI solutions that fit your exact requirements.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Process Automation</h3>
+                    <p>Streamline operations and reduce manual work with intelligent automation solutions that learn and adapt to your business processes.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Data Intelligence</h3>
+                    <p>Transform your data into actionable insights with advanced analytics and predictive modeling tailored to your business objectives.</p>
+                </div>
+                <div class="service-card">
+                    <h3>AI Integration</h3>
+                    <p>Seamlessly integrate AI capabilities into your existing systems and workflows without disrupting your operations.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Training & Support</h3>
+                    <p>Empower your team with comprehensive training and ongoing support to maximize the value of your AI investments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="benefits">
+        <h2>The CognitiFlow Advantage</h2>
+        <div class="benefits-list">
+            <div class="benefit-item">
+                <span class="check">✓</span>
+                <div>
+                    <h3>Increased Efficiency</h3>
+                    <p>Automate repetitive tasks and free up your team to focus on high-value work.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <span class="check">✓</span>
+                <div>
+                    <h3>Better Decisions</h3>
+                    <p>Make data-driven decisions with AI-powered insights and predictions.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <span class="check">✓</span>
+                <div>
+                    <h3>Enhanced Experience</h3>
+                    <p>Improve customer and employee experiences with intelligent, personalized solutions.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <span class="check">✓</span>
+                <div>
+                    <h3>Scalable Growth</h3>
+                    <p>Build AI systems that grow and evolve with your business needs.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <span class="check">✓</span>
+                <div>
+                    <h3>Competitive Edge</h3>
+                    <p>Stay ahead of the competition with cutting-edge AI technology.</p>
+                </div>
+            </div>
+            <div class="benefit-item">
+                <span class="check">✓</span>
+                <div>
+                    <h3>Measurable ROI</h3>
+                    <p>Track and measure the impact of AI on your bottom line.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="cta-section">
+        <h2>Ready to Transform Your Business?</h2>
+        <p>Let's discuss how custom AI solutions can drive your success.</p>
+        <a href="mailto:hello@cognitiflow.ai" class="cta-button-white">Contact Us</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#benefits">Benefits</a>
+                <a href="mailto:hello@cognitiflow.ai">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <div class="copyright">
+                &copy; 2025 CognitiFlow. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
